@@ -5,7 +5,7 @@
           <img src="https://img.shields.io/badge/Python-v3.11-blue.svg" />
     </a>
     <a alt="PostgreSQL">
-        <img src="https://img.shields.io/badge/Spring_Boot-v12.15-red.svg" />
+        <img src="https://img.shields.io/badge/PostgreSQL-v12.15-red.svg" />
     </a>
 </p>
 
