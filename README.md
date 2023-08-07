@@ -1,8 +1,15 @@
 # Ada ~ Finanças
-Projeto Bootcamp Ada + Nuclea do módulo Python
 
-## Descrição do Projeto:
-Construíremos uma aplicação em Python que ofereçaum menu com 5 opções ao usuário:
+<p align="center">
+    <a alt="Python">
+          <img src="https://img.shields.io/badge/Python-v3.11-blue.svg" />
+    </a>
+    <a alt="PostgreSQL">
+        <img src="https://img.shields.io/badge/Spring_Boot-v12.15-red.svg" />
+    </a>
+</p>
+
+Projeto Bootcamp Ada + Nuclea do módulo Python. Projeto de uma aplicação em Python que ofereçaum menu com 5 opções ao usuário:
 
 ### Cliente
 Essa opção irá oferecer ao usuário a opção de realizar um CRUD com o clinete. Deve ser exibido as seguintes opções:
