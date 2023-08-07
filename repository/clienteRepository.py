@@ -21,7 +21,7 @@ def menu_cliente():
             cliente.set_data_nascimento(valida_data_nascimento())
             cliente.set_cep(busca_cep(input('CEP: ')))
             cliente.set_numero_casa(input('Número da casa: '))
-            print(cliente)
+            # print(cliente)
             salva_cliente(cliente)
         elif op == '2':
             cliente = Cliente()
@@ -63,20 +63,30 @@ def salva_cliente(cliente):
               cliente.get_estado(),
               cliente.get_numero_casa()
               )
-
     db = MyDatabase()
-    db.cur.execute(query, values)
-    db.conn.commit()
-    db.cur.close()
+    try:
+        db.cur.execute(query, values)
+        db.conn.commit()
+        db.cur.close()
+    except Exception as e:
+        print("Ocorreu um erro ao tentar salvar o cliente: Erro recebido: ", e)
+    finally:
+        db.cur.close()
+        db.close()
 
 
 def deleta_cliente(id_cliente):
     query = f"""DELETE FROM cliente WHERE id={id_cliente}"""
     db = MyDatabase()
-    db.cur.execute(query)
-    db.conn.commit()
-    db.cur.close()
-
+    try:
+        db.cur.execute(query)
+        db.conn.commit()
+        db.cur.close()
+    except Exception as e:
+        print("Ocorreu um erro ao tentar deletar o cliente: Erro recebido: ", e)
+    finally:
+        db.cur.close()
+        db.close()
 
 def atualiza_cliente(cliente, id_cliente):
     query = f"""UPDATE cliente SET nome=%s, cpf=%s, rg=%s, data_nascimento=%s, cep=%s, longradouro=%s, complemento=%s, 
@@ -95,21 +105,32 @@ def atualiza_cliente(cliente, id_cliente):
               cliente.get_numero_casa(),
               id_cliente
               )
-
     db = MyDatabase()
-    db.cur.execute(query, values)
-    db.conn.commit()
-    db.cur.close()
+    try:
+        db.cur.execute(query, values)
+        db.conn.commit()
+        db.cur.close()
+    except Exception as e:
+        print("Ocorreu um erro ao tentar atualizar o cliente: Erro recebido: ", e)
+    finally:
+        db.cur.close()
+        db.close()
 
 
 def lista_clientes():
     query = "SELECT * FROM cliente"
     db = MyDatabase()
-    db.cur.execute(query)
-    db.conn.commit()
-    clientes = db.cur.fetchall()
+    try:
+        db.cur.execute(query)
+        db.conn.commit()
+        clientes = db.cur.fetchall()
 
-    for cliente in clientes:
-        print(cliente)
+        for cliente in clientes:
+            print(cliente)
 
-    db.cur.close()
+        db.cur.close()
+    except Exception as e:
+        print("Ocorreu um erro ao tentar listar os cliente cadastrados: Erro recebido: ", e)
+    finally:
+        db.cur.close()
+        db.close()

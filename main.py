@@ -1,16 +1,7 @@
-from repository.ClienteRepository import menu_cliente
-
-
-def cadastro_acao():
-    pass
-
-
-def analisar_carteira():
-    pass
-
-
-def imprimir_relatorio():
-    pass
+from repository.acaoRepository import menu_acao
+from repository.clienteRepository import menu_cliente
+from service.analiseCarteira import analisa_carteira
+from service.relatorio import obter_dados_acao
 
 
 if __name__ == '__main__':
@@ -33,13 +24,13 @@ if __name__ == '__main__':
             menu_cliente()
 
         elif r == 2:
-            cadastro_acao()
+            menu_acao()
 
         elif r == 3:
-            analisar_carteira()
+            analisa_carteira()
 
         elif r == 4:
-            imprimir_relatorio()
+            obter_dados_acao()
 
         else:
             print('Opção inválida, selecione outra opção!')

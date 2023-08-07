@@ -2,12 +2,12 @@ class Ordem:
 
     def __init__(self):
         self.id = ""
+        self.cliente_id = ""
         self.nome = ""
         self.ticket = ""
         self.valor_compra = ""
         self.quantidade_compra = ""
         self.data_compra = ""
-        self.cliente_id = ""
 
     def get_id(self):
         return self.id
